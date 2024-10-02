@@ -9,9 +9,16 @@ public class App extends AndroidPlugin {
     @Override
     public void onInit(DvmPluginDescriptor descriptor) {
         super.onInit(descriptor);
-        
+
     }
-    
-    
-    
+
+    @Override
+    public void onInstall() {
+
+    }
+
+    @Override
+    public void onUninstall() {
+
+    }
 }
