@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:id="@+id/line_center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QiStudio"
+            android:textSize="24sp"
+            android:id="@+id/textview_shuqi" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自动备份插件"
+            android:textSize="32sp"
+            android:id="@+id/textview_beifen" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="此为QiStudio自动备份插件安装或更新程序"
+            android:id="@+id/textview_tip1"
+            android:layout_marginTop="8dp"
+            android:textColor="@android:color/holo_red_light" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="若为第一次安装，点击安装按钮后请手动前往书契安装"
+            android:textColor="@android:color/holo_red_light" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="更新插件"
+            android:layout_marginTop="14dp"
+            android:id="@+id/button_updata" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="安装插件"
+            android:id="@+id/button_install"
+            android:layout_marginTop="6dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="打开书契"
+            android:layout_marginTop="6dp"
+            android:id="@+id/button_startqi" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="卸载本程序"
+            android:layout_marginTop="6dp"
+            android:id="@+id/button_uninstall_this" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前程序所带版本："
+            android:layout_gravity="bottom|right"
+            android:id="@+id/textview_tip_bottom"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已安装版本："
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="10dp"
+            android:id="@+id/textview_bottom_2" />
+
+    </LinearLayout>
+
+</LinearLayout>
