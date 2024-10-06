@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='utf-8' ?>
-<LinearLayout
-    android:layout_width="fill_parent"
+<LinearLayout android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:gravity="center_horizontal">
@@ -58,9 +57,9 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="打开书契"
+            android:text="打开结绳或Qistudio"
             android:layout_marginTop="6dp"
-            android:id="@+id/button_startqi" />
+            android:id="@+id/button_start" />
 
         <Button
             android:layout_width="wrap_content"

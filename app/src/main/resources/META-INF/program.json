@@ -17,7 +17,7 @@
       "class": "xyz.wystudio.qistudio.program.autobackup.App"
     },{
       "point": "platform.settingsBuilder",
-      "class": "xyz.wystudio.qistudio.program.autobackup.manager.WSettingManager"            
+      "class": "xyz.wystudio.qistudio.program.autobackup.manager.WSettingManager"
     }
   ]
 }
