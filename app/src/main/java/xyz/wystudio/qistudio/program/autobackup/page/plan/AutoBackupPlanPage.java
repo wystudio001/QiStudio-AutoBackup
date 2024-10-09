@@ -1,17 +1,67 @@
 package xyz.wystudio.qistudio.program.autobackup.page.plan;
 
-import android.os.Bundle;
+import android.view.View;
 
-import com.rapid.android.ui.widget.setting.SettingGroupView;
+import com.rapid.api.component.page.setting.SettingsPage;
+import com.rapid.api.component.widget.item.ISettingGroupView;
+import com.rapid.api.component.widget.item.ITextSwitchItemView;
 
 import xyz.wystudio.qistudio.program.autobackup.page.WBasePage;
 
 public class AutoBackupPlanPage extends WBasePage {
+
+    String TAG = "自动备份策略";
+    ISettingGroupView planGroupView;
+
     @Override
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        //setTitle("自动备份策略");
-        SettingGroupView item1 = getSettingGroupView("基础设置");
-        item1.addSwitchItem("测试", "", true);
+    public void build(SettingsPage settingsPage) {
+        ISettingGroupView item1 = settingsPage.getOrAddSettingGroup("对话框");
+        item1.addSwitchItem("备份进度对话框", "备份时是否显示进度对话框", true, new ITextSwitchItemView.OnCheckedChangeListener() {
+            @Override
+            public void onChange(ITextSwitchItemView iTextSwitchItemView, boolean b) {
+
+            }
+        });
+
+        planGroupView = settingsPage.getOrAddSettingGroup("备份时机");
+        addPlanItem("打开项目时", "当前项目");
+        addPlanItem("打开结绳时", "指定xxx项目");
+        addPlanItem("运行项目时", "当前项目");
+        addPlanItem("打开项目时", "当前项目");
+        addPlanItem("打包项目时", "指定 xxx,xx 2个项目");
+        planGroupView.addArrowItem(">>>添加时机<<<", ">>>点我添加<<<", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        ISettingGroupView item3 = settingsPage.getOrAddSettingGroup("教程");
+        item3.addArrowItem("时机添加教程", ">>必看<<", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+    }
+
+    public void addPlanItem(String time, String programs) {
+        planGroupView.addArrowItem(time, "项目：" + programs, new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+    }
+
+    @Override
+    public String getId() {
+        return "ID_WAUTO_SETTINGS_PLAN";
+    }
+
+    @Override
+    public String getTAG() {
+        return TAG;
     }
 }

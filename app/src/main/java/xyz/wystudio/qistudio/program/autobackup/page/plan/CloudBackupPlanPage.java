@@ -1,13 +1,25 @@
 package xyz.wystudio.qistudio.program.autobackup.page.plan;
 
-import android.os.Bundle;
+import com.rapid.api.component.page.setting.SettingsPage;
 
 import xyz.wystudio.qistudio.program.autobackup.page.WBasePage;
 
 public class CloudBackupPlanPage extends WBasePage {
+
+    String TAG = "云备份策略";
+
     @Override
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        //setTitle("云备份策略");
+    public void build(SettingsPage settingsPage) {
+        super.build(settingsPage);
+    }
+
+    @Override
+    public String getId() {
+        return "ID_WAUTO_SETTINGS_ClOUDPLAN";
+    }
+
+    @Override
+    public String getTAG() {
+        return TAG;
     }
 }

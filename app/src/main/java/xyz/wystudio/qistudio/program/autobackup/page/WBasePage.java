@@ -1,29 +1,36 @@
 package xyz.wystudio.qistudio.program.autobackup.page;
 
+import com.rapid.api.component.page.setting.SettingsPage;
+import com.rapid.api.framework.common.setting.AsSubSettingsInfo;
+import com.rapid.api.framework.common.setting.BaseSettingsBuilder;
 
-import android.os.Bundle;
-import android.widget.LinearLayout;
-
-import com.rapid.android.ui.app.RapidPluginPage;
-import com.rapid.android.ui.widget.setting.SettingGroupView;
-
-public class WBasePage extends RapidPluginPage {
-
-    LinearLayout layout;
-    SettingGroupView settingGroupView;
-
+public class WBasePage extends BaseSettingsBuilder {
     @Override
-    public void onCreate(Bundle bundle) {
-        layout = new LinearLayout(this);
-        setContentView(layout);
+    public void build(SettingsPage settingsPage) {
 
-        settingGroupView = new SettingGroupView(this);
-        //SettingGroupView view = new SettingGroupView(Platform.getApplicationContext());
-        layout.addView(settingGroupView);
     }
 
-    public SettingGroupView getSettingGroupView(String title) {
-        settingGroupView.setTitle(title);
-        return settingGroupView;
+    @Override
+    public String getParentId() {
+        return "ID_WAUTO_SETTINGS";
+    }
+
+    @Override
+    public String getId() {
+        return null;
+    }
+
+    @Override
+    public AsSubSettingsInfo getAsSubSettingsInfo() {
+        return new AsSubSettingsInfo("策略设置", getTAG(), "配置相关设置");
+    }
+
+    @Override
+    public void dispose() {
+
+    }
+
+    public String getTAG() {
+        return "";
     }
 }

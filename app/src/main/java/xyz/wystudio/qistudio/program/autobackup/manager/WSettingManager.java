@@ -9,9 +9,6 @@ import com.rapid.api.component.widget.item.ITextSwitchItemView;
 import com.rapid.api.framework.common.setting.AsSubSettingsInfo;
 import com.rapid.api.framework.common.setting.BaseSettingsBuilder;
 
-import xyz.wystudio.qistudio.program.autobackup.page.plan.AutoBackupPlanPage;
-import xyz.wystudio.qistudio.program.autobackup.page.plan.CloudBackupPlanPage;
-
 public class WSettingManager extends BaseSettingsBuilder {
     @Override
     public void build(SettingsPage page) {
@@ -35,7 +32,9 @@ public class WSettingManager extends BaseSettingsBuilder {
             }
         });
 
+
         ISettingGroupView item2 = page.getOrAddSettingGroup("策略设置");
+        /*
         item2.addArrowItem("自动备份策略", "", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,15 +47,16 @@ public class WSettingManager extends BaseSettingsBuilder {
                 page.startPluginPage(CloudBackupPlanPage.class);
             }
         });
+        */
 
         ISettingGroupView item3 = page.getOrAddSettingGroup("使用教程");
-        item3.addArrowItem("用前必看", "", new View.OnClickListener() {
+        item3.addArrowItem("用前必看", ">>>>必看<<<<", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
         });
-        item3.addArrowItem("常见问题", "", new View.OnClickListener() {
+        item3.addArrowItem("常见问题", ">解决大多数问题<", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
