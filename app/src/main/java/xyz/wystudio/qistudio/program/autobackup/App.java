@@ -3,12 +3,10 @@ package xyz.wystudio.qistudio.program.autobackup;
 import android.content.res.AssetManager;
 
 import com.rapid.api.Platform;
-import com.rapid.api.framework.ServiceKeys;
 import com.rapid.framework.program.android.DvmPluginDescriptor;
 import com.rapid.framework.program.android.app.AndroidPlugin;
 
-import xyz.wystudio.qistudio.program.autobackup.page.plan.AutoBackupPlanPage;
-import xyz.wystudio.qistudio.program.autobackup.page.plan.CloudBackupPlanPage;
+import xyz.wystudio.qistudio.program.autobackup.util.LogUtils;
 
 
 public class App extends AndroidPlugin {
@@ -19,9 +17,14 @@ public class App extends AndroidPlugin {
     public void onInit(DvmPluginDescriptor descriptor) {
         super.onInit(descriptor);
         assetManager = descriptor.getAssetManager();
+        LogUtils.init();
 
+
+        /*
         Platform.getService(ServiceKeys.SETTINGS).add(new AutoBackupPlanPage());
         Platform.getService(ServiceKeys.SETTINGS).add(new CloudBackupPlanPage());
+        Platform.getService(ServiceKeys.SETTINGS).add(new ThanksPage());
+        */
     }
 
     @Override

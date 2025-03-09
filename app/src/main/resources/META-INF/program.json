@@ -2,12 +2,12 @@
   "id": "xyz.wystudio.qistudio.program.autobackup",
   "name": "自动备份插件",
   "engine": "plugin",
-  "description": "自动备份插件",
+  "description": "",
   "versionCode": 1,
   "versionName": "1.0.0",
   "minSupport": 1,
   "vendor": {
-    "name": "WYstudio",
+    "name": "移动IPE项目联合成员",
     "url": "https://blog.wystudio.xyz/",
     "email": "wystudio001@qq.com"
   },
@@ -18,6 +18,18 @@
     },{
       "point": "platform.settingsBuilder",
       "class": "xyz.wystudio.qistudio.program.autobackup.manager.WSettingManager"
+    },
+    {
+      "point": "platform.settingsBuilder",
+      "class": "xyz.wystudio.qistudio.program.autobackup.page.plan.AutoBackupPlanPage"
+    },
+    {
+      "point": "platform.settingsBuilder",
+      "class": "xyz.wystudio.qistudio.program.autobackup.page.plan.CloudBackupPlanPage"
+    },
+    {
+      "point": "platform.settingsBuilder",
+      "class": "xyz.wystudio.qistudio.program.autobackup.page.thanks.ThanksPage"
     }
   ]
 }

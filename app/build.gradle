@@ -3,6 +3,8 @@ plugins {
     id 'com.android.application'
 }
 
+apply from: '../push-plugin.gradle'
+
 android {
     namespace 'xyz.wystudio.qistudio.program.autobackup'
     compileSdk 33
@@ -73,4 +75,5 @@ android {
 dependencies {
     compileOnly fileTree(dir: '../libs-only', include: '*.jar')
     implementation fileTree(dir: '../libs', include: '*.jar')
+    implementation 'cn.hutool:hutool-all:5.8.26'
 }

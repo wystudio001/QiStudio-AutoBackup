@@ -4,8 +4,8 @@ import android.view.View;
 
 import com.rapid.api.component.page.setting.SettingsPage;
 import com.rapid.api.component.widget.item.ISettingGroupView;
-import com.rapid.api.component.widget.item.ITextSwitchItemView;
 
+import xyz.wystudio.qistudio.program.autobackup.key.SettingsKey;
 import xyz.wystudio.qistudio.program.autobackup.page.WBasePage;
 
 public class AutoBackupPlanPage extends WBasePage {
@@ -16,12 +16,7 @@ public class AutoBackupPlanPage extends WBasePage {
     @Override
     public void build(SettingsPage settingsPage) {
         ISettingGroupView item1 = settingsPage.getOrAddSettingGroup("对话框");
-        item1.addSwitchItem("备份进度对话框", "备份时是否显示进度对话框", true, new ITextSwitchItemView.OnCheckedChangeListener() {
-            @Override
-            public void onChange(ITextSwitchItemView iTextSwitchItemView, boolean b) {
-
-            }
-        });
+        item1.addSwitchItem("备份进度对话框", "备份时是否显示进度对话框", SettingsKey.SWITCH_DIALOG, true);
 
         planGroupView = settingsPage.getOrAddSettingGroup("备份时机");
         addPlanItem("打开项目时", "当前项目");
@@ -37,7 +32,7 @@ public class AutoBackupPlanPage extends WBasePage {
         });
 
         ISettingGroupView item3 = settingsPage.getOrAddSettingGroup("教程");
-        item3.addArrowItem("时机添加教程", ">>必看<<", new View.OnClickListener() {
+        item3.addArrowItem("时机添加教程", ">>>必看<<<", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -47,7 +42,7 @@ public class AutoBackupPlanPage extends WBasePage {
     }
 
     public void addPlanItem(String time, String programs) {
-        planGroupView.addArrowItem(time, "项目：" + programs, new View.OnClickListener() {
+        planGroupView.addArrowItem(time, "项目：" + programs, "修改", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
