@@ -70,6 +70,14 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+
+    applicationVariants.configureEach { variant ->
+        // 设置输出文件名
+        variant.outputs.configureEach { output ->
+            def newFileName = "AuotBackupPlugin-${variant.versionName}.rmx"
+            output.outputFileName = newFileName // 输出文件名
+        }
+    }
 }
 
 dependencies {

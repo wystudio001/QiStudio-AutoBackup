@@ -7,6 +7,8 @@ import com.rapid.api.component.widget.item.ISettingGroupView;
 
 import xyz.wystudio.qistudio.program.autobackup.key.SettingsKey;
 import xyz.wystudio.qistudio.program.autobackup.page.WBasePage;
+import xyz.wystudio.qistudio.program.autobackup.widget.dialog.add.AddPlanTimeDialog;
+import xyz.wystudio.qistudio.program.autobackup.widget.dialog.plan.PlanPageTimeHelpDialog;
 
 public class AutoBackupPlanPage extends WBasePage {
 
@@ -27,7 +29,7 @@ public class AutoBackupPlanPage extends WBasePage {
         planGroupView.addArrowItem(">>>添加时机<<<", ">>>点我添加<<<", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                AddPlanTimeDialog.getInstance(getActivity()).show();
             }
         });
 
@@ -35,7 +37,7 @@ public class AutoBackupPlanPage extends WBasePage {
         item3.addArrowItem("时机添加教程", ">>>必看<<<", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                PlanPageTimeHelpDialog.getInstance(getActivity()).show();
             }
         });
 

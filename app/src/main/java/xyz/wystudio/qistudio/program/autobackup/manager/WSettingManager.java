@@ -9,6 +9,8 @@ import com.rapid.api.framework.common.setting.AsSubSettingsInfo;
 import com.rapid.api.framework.common.setting.BaseSettingsBuilder;
 
 import xyz.wystudio.qistudio.program.autobackup.key.SettingsKey;
+import xyz.wystudio.qistudio.program.autobackup.widget.dialog.setting.SettingPageHelpDialog;
+import xyz.wystudio.qistudio.program.autobackup.widget.dialog.setting.SettingPageQADialog;
 
 public class WSettingManager extends BaseSettingsBuilder {
     @Override
@@ -25,13 +27,13 @@ public class WSettingManager extends BaseSettingsBuilder {
         item3.addArrowItem("用前必看", ">>>>必看<<<<", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                SettingPageHelpDialog.getInstance(getActivity()).show();
             }
         });
         item3.addArrowItem("常见问题", ">解决大多数问题<", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                SettingPageQADialog.getInstance(getActivity()).show();
             }
         });
 

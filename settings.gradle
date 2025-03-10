@@ -21,6 +21,6 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "Qistudio插件"
+rootProject.name = "AutoBackupPlugin"
 
 include(":app")

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Qistudio插件</string>
+    <string name="app_name">AutoBackupPlugin</string>
     <!-- Strings used for fragments for navigation -->
     <string name="title_activity_main">自动备份插件安装程序</string>
 
