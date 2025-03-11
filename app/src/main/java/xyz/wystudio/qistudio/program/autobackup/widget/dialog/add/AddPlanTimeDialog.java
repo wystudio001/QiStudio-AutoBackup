@@ -1,10 +1,12 @@
 package xyz.wystudio.qistudio.program.autobackup.widget.dialog.add;
 
 import android.app.AlertDialog;
+import android.content.ClipboardManager;
 import android.content.Context;
 
 import android.content.DialogInterface;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,8 +45,15 @@ public class AddPlanTimeDialog {
     public void show() {
         builder.setTitle("测试");
         
-        layout();
-        //layout2();
+        try {
+        	//layout();
+            layout2();
+        } catch(Exception err) {
+        	err.printStackTrace();
+            Log.e("Dialog",err.toString());
+            ClipboardManager clipboard = (ClipboardManager) context.getSystemService("clipboard");
+		    clipboard.setText(err.toString());
+        }
         
         builder.setPositiveButton("添加",new DialogInterface.OnClickListener(){
             @Override
@@ -85,11 +94,12 @@ public class AddPlanTimeDialog {
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT 
         );
-        textViewParams.setMargins(10, 10, 10, 10); // 设置左右上下边距 
+        textViewParams.setMargins(10, 30, 10, 10); // 设置左右上下边距 
         
         // 创建TextView“选择项目”
         TextView textViewProject = new TextView(context);
         textViewProject.setText("选择项目");
+        textViewProject.setTextSize(15);
         textViewProject.setLayoutParams(textViewParams);
         
         // 创建Spinner 
@@ -118,6 +128,7 @@ public class AddPlanTimeDialog {
         // 第二部分：选择时机（单选下拉列表）
         TextView textViewTiming = new TextView(context);
         textViewTiming.setText("选择时机");
+        textViewTiming.setTextSize(15);
         textViewTiming.setLayoutParams(textViewParams);
         
         Spinner spinnerTiming = new Spinner(context);
@@ -143,6 +154,7 @@ public class AddPlanTimeDialog {
         // 第三部分：备份方式 
         TextView textViewBackup = new TextView(context);
         textViewBackup.setText("备份方式");
+        textViewBackup.setTextSize(15);
         textViewBackup.setLayoutParams(textViewParams);
         
         // 第四部分：单选按钮组 
@@ -159,7 +171,7 @@ public class AddPlanTimeDialog {
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT 
         ));
-        radioButton1.setPadding(10, 10, 10, 10); // 设置内边距 
+        radioButton1.setPadding(10, 30, 10, 10); // 设置内边距 
         
         RadioButton radioButton2 = new RadioButton(context);
         radioButton2.setText("本地备份");
@@ -167,7 +179,7 @@ public class AddPlanTimeDialog {
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT 
         ));
-        radioButton2.setPadding(10, 10, 10, 10);
+        radioButton2.setPadding(10, 30, 10, 10);
         
         radioGroup.addView(radioButton1);
         radioGroup.addView(radioButton2);
@@ -181,5 +193,80 @@ public class AddPlanTimeDialog {
         // 设置自定义布局到AlertDialog.Builder 
         builder.setView(rootLayout);
     }
+    
+    public void layout2(){
+        LinearLayout rootLayout = new LinearLayout(context);
+        rootLayout.setOrientation(LinearLayout.VERTICAL);
+        rootLayout.setLayoutParams(new ViewGroup.LayoutParams(-2,-2));
+        setViewHeight(rootLayout,-1);
+        setViewWidth(rootLayout,-1);
+        
+        LinearLayout linearLayoutChooseProject = new LinearLayout(context);
+        linearLayoutChooseProject.setOrientation(LinearLayout.HORIZONTAL);
+        linearLayoutChooseProject.setLayoutParams(new ViewGroup.LayoutParams(-2,-2));
+        setViewHeightByDP(linearLayoutChooseProject,50);
+        setViewWidth(linearLayoutChooseProject,-1);
+        
+        TextView textViewChooseProject = new TextView(context);
+        textViewChooseProject.setText("选择项目");
+        textViewChooseProject.setGravity(17);
+        textViewChooseProject.setTextSize(17);
+        textViewChooseProject.setTextColor(0XFF000000);
+        textViewChooseProject.setLayoutParams(new LinearLayout.LayoutParams(-2,-2));
+        setLinearLayoutViewQuan(textViewChooseProject,0.1f);
+        setViewHeight(textViewChooseProject,-1);
+        
+        Spinner spinnerChooseProject = new Spinner(context);
+        // 为Spinner设置适配器 
+        String[] itemsProject = {"项目1", "项目2", "项目3"};
+        ArrayAdapter<String> adapterProject = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, itemsProject);
+        adapterProject.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerChooseProject.setAdapter(adapterProject);
+        spinnerChooseProject.setLayoutParams(new LinearLayout.LayoutParams(-2,-2));
+        setViewHeight(spinnerChooseProject,-1);
+        setLinearLayoutViewQuan(spinnerChooseProject,0.5f);
+        
+        linearLayoutChooseProject.addView(textViewChooseProject);
+        linearLayoutChooseProject.addView(spinnerChooseProject);
+        
+        rootLayout.addView(linearLayoutChooseProject);
+        builder.setView(rootLayout);
+        
+    }
+    
+    public void setLinearLayoutViewQuan(View v,float key){
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) v.getLayoutParams();
+		params.weight = key;
+		v.setLayoutParams(params);
+    }
+    
+    public void setViewWidth(View view,int width){
+        ViewGroup.LayoutParams params = view.getLayoutParams();
+		if (params == null) {
+			return;
+		}
+		params.width = width;
+		view.setLayoutParams(params);
+    }
+    
+    public void setViewHeight(View view,int height){
+        ViewGroup.LayoutParams params = view.getLayoutParams();
+		if (params == null) {
+			return;
+		}
+		params.height = height;
+		view.setLayoutParams(params);
+    }
+    
+    public void setViewWidthByDP(View view,int dp){
+        float scale = context.getResources().getDisplayMetrics().density;
+        int width = (int) (dp * scale + 0.5f);
+        setViewWidth(view,width);
+    }
 
+    public void setViewHeightByDP(View view,int dp){
+        float scale = context.getResources().getDisplayMetrics().density;
+        int height = (int) (dp * scale + 0.5f);
+        setViewWidth(view,height);
+    }
 }
