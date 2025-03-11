@@ -15,6 +15,7 @@ import java.io.File;
 import xyz.wystudio.qistudio.program.autobackup.R;
 import xyz.wystudio.qistudio.program.autobackup.util.AppUtils;
 import xyz.wystudio.qistudio.program.autobackup.util.FileUtils;
+import xyz.wystudio.qistudio.program.autobackup.widget.dialog.add.AddPlanTimeDialog;
 
 public class MainActivity extends Activity {
 
@@ -62,6 +63,13 @@ public class MainActivity extends Activity {
                 } else {
                     tips("文件移动失败！");
                 }
+            }
+        });
+        
+        btn_install.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AddPlanTimeDialog.getInstance(MainActivity.this).show();
             }
         });
     }
