@@ -3,6 +3,7 @@ package xyz.wystudio.qistudio.program.autobackup;
 import android.content.res.AssetManager;
 
 import com.rapid.api.Platform;
+import com.rapid.api.ext.file.PublicPath;
 import com.rapid.framework.program.android.DvmPluginDescriptor;
 import com.rapid.framework.program.android.app.AndroidPlugin;
 
@@ -18,7 +19,7 @@ public class App extends AndroidPlugin {
         super.onInit(descriptor);
         assetManager = descriptor.getAssetManager();
         LogUtils.init();
-
+        LogUtils.writeMainLog("插件被启动");
 
         /*
         Platform.getService(ServiceKeys.SETTINGS).add(new AutoBackupPlanPage());
@@ -46,6 +47,6 @@ public class App extends AndroidPlugin {
 
 
     public static String getPluginPath() {
-        return Platform.getSystemPath().getLoggingPath() + "/xyz.wystudio.qistudio.program.autobackup/";
+        return Platform.getSystemPath().getPublicPath(PublicPath.PROGRAMS) + "/xyz.wystudio.qistudio.program.autobackup/";
     }
 }

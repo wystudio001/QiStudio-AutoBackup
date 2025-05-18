@@ -23,7 +23,7 @@ public class SettingPageHelpDialog extends WBaseBottomDialog {
     }
 
     public void show() {
-        setContent("content");
+        setContent("当前版本为beta版本，仅提供本地备份");
         super.show();
     }
 }

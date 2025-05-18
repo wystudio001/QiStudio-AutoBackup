@@ -1,5 +1,7 @@
 package xyz.wystudio.qistudio.program.autobackup.util;
 
+import android.os.Build;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -14,11 +16,24 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.nio.channels.FileChannel;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import xyz.wystudio.qistudio.program.autobackup.App;
 
 public class FileUtils {
 
+    public static void renameTo(String source, String target) {
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                Files.move(Paths.get(source), Paths.get(target));
+            } else {
+                new File(source).renameTo(new File(target));
+            }
+        } catch (Exception e) {
+            LogUtils.writeErrorLog(e.toString());
+        }
+    }
 
     public static boolean renameFile(String file_old, String file_new) {
         File oldfile = new File(file_old);

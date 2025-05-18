@@ -2,12 +2,12 @@
   "id": "xyz.wystudio.qistudio.program.autobackup",
   "name": "自动备份插件",
   "engine": "plugin",
-  "description": "",
+  "description": "用于自动备份项目过程代码。以防止结绳的BUG导致代码文件丢失",
   "versionCode": 1,
-  "versionName": "1.0.0",
+  "versionName": "beta-0.1",
   "minSupport": 1,
   "vendor": {
-    "name": "移动IPE项目联合成员",
+    "name": "WYstudio",
     "url": "https://blog.wystudio.xyz/",
     "email": "wystudio001@qq.com"
   },
@@ -30,6 +30,10 @@
     {
       "point": "platform.settingsBuilder",
       "class": "xyz.wystudio.qistudio.program.autobackup.page.thanks.ThanksPage"
+    },
+    {
+      "point": "project.event.lifecycle",
+      "class": "xyz.wystudio.qistudio.program.autobackup.event.ProjectLifeEvent"
     }
   ]
 }
